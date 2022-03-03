@@ -1,21 +1,45 @@
-let amount = 32;
-const canvas = document.querySelector('#main-container');
 
-function createDivs(divAmount){
-    divAmount = amount * amount;
-    for(let i = 0; i < divAmount;i++){
-        let div = document.createElement('div');
-        if(amount === 32){
-            div.classList.add('thirty-grid');
-        }else if(amount ===64){
-            div.classList.add('forty-grid');
+const canvas = document.querySelector('#main-container');
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        canvas.innerHTML = '';
+        if(button.id === '16'){
+            
+            return createDivs(16);
+        }else if(button.id === '32'){
+            
+            return createDivs(32);
         }else{
-            div.classList.add('pixels');
+            
+            return createDivs(64);
         }
+
+    });
+
+});
+
+
+
+function createDivs(amount){
+    divAmount = amount * amount;
+    for(let i = 0; i < divAmount; i++){
+        const div = document.createElement('div');
+        //div.textContent = i;
         canvas.appendChild(div);
+        if(divAmount === 256){
+            div.classList.add('pixels');
+
+        }else if(divAmount === 1024){
+            div.classList.add('thirty-grid');
+
+        }else{
+            div.classList.add('sixty-grid');
+        }
+        
     }
 };
 
-window.onload = function(){
-    createDivs(amount);
-};
+function clear(){
+    document.removeChild(document.canvas);
+}
