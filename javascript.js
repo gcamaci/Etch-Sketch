@@ -1,59 +1,58 @@
-
-const canvas = document.querySelector('#main-container');
-let colorChoice = "black";
-//const rainbow = document.querySelector('#rainbow');
-//rainbow.addEventListener('click', () => {
-    //console.log(randomColor());
-//});
-
-
-//grid choice button/ create canvas
-const buttons = document.querySelectorAll('.btn');
-
-
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        canvas.innerHTML = '';
-        createCanvas(button.id);
-    });
-
+let color= document.getElementById('favcolor');
+let colorChoice = color.value;
+let random = " ";
+let slider = document.getElementById('sliderAmount');
+let canvas = document.querySelector('#main-container');
+let eraser = document.querySelector('#eraser');
+let reset = document.querySelector('#reset');
+const rainbowcolors = document.querySelector('#rainbow');
+rainbowcolors.addEventListener('click', () =>{
+    random = "random";
+    console.log(random);
 });
+eraser.addEventListener('click',erase);
+reset.addEventListener('click', resetCanvas);
 
-
-function createCanvas(gridSize){
-    if(gridSize === '16'){
-        createDivs(16);
-    }else if(gridSize === '32'){
-        createDivs(32);
-    }else{
-        createDivs(64);
+function makeCanvas(size){
+    canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    let gridSize = size * size;
+    for(let i = 0; i < gridSize; i++){
+        let pixel = document.createElement('div');
+        pixel.classList.add('pixels')
+        pixel.addEventListener('mouseover', mainPen);
+        //pixel.addEventListener('mousedown', mainPen);
+        canvas.insertAdjacentElement('beforeend', pixel);
     }
 };
-//function that takes amount creates div and adds style class
-function createDivs(amount){
-    divAmount = amount * amount;
-    for(let i = 0; i < divAmount; i++){
-        const div = document.createElement('div');
-        div.addEventListener('mouseover', () => {
-            console.log(i);
-            div.style.background = colorChoice;   
-        });
-        if(divAmount === 256){
-            div.classList.add('pixels','grid-Div');
-        }else if(divAmount === 1024){
-            div.classList.add('thirty-grid','grid-Div');
-        }else{
-            div.classList.add('sixty-grid', 'grid-Div');
-        }  
-        canvas.appendChild(div) 
+makeCanvas(50);
+
+function mainPen(){
+    this.style.background = colorChoice;
+    if(random === "random"){
+        let color = randomColor();
+        this.style.background = color;
     }
+    
 };
-
-function clear(){
-    document.removeChild(document.canvas);
+function erase (){
+    colorChoice = "white";
+    random = " ";
 };
-
-
+// Slider input 
+function gridInput(input){
+    canvas.innerHTML = '';
+    return makeCanvas(input)
+};
+function resetCanvas(){
+    canvas.innerHTML = '';
+    return makeCanvas(slider.value);
+};
+function penColor(){
+    random = " ";
+    colorChoice = color.value;
+    console.log(colorChoice);
+};
 
 function randomColor(){
     switch(Math.floor(Math.random() * 5)){
@@ -62,7 +61,7 @@ function randomColor(){
         break;
 
         case 1:
-        colorChoice = "yello";
+        colorChoice = "yellow";
         break;
 
         case 2:
@@ -79,3 +78,38 @@ function randomColor(){
     }
    
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

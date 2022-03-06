@@ -13,13 +13,14 @@
         </div>
     </div>  
     <div class="button-container">
-        <button id="16" class="btn">16 X 16</button>
-        <button id="32" class="btn">32 x 32</button>
-        <button id="64" class="btn">64 X 64</button>
-        <button id="rainbow">Rainbow</button>
+        <button id = "eraser" class="btn">Eraser</button>
+        <button id = "reset" class="btn">Reset</button>
+        <button class="btn"></button>
+        <button id = "rainbow">Rainbow</button>
     </div>
-    <label for = "colorpicker">Pick Color Marker</label>
-    <input type="color" id="colorpicker">
+    <input type="range" min="1" max="100" value="50" class="slider" id="sliderAmount" onchange="gridInput(this.value)">
+    <label for = "pen-color">Select a Pen Color!</label>
+    <input type="color" id="favcolor" name="favcolor" value="#ff0000" onchange="penColor()">
     <script src="javascript.js"></script>
 </body>
 </html>
