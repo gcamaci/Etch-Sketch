@@ -7,7 +7,11 @@ let eraser = document.querySelector('#eraser');
 let reset = document.querySelector('#reset');
 const rainbowcolors = document.querySelector('#rainbow');
 rainbowcolors.addEventListener('click', () =>{
-    random = "random";
+    if(random === 'random'){
+        random = ' ';
+    }else if(random===' '){
+        random = 'random'
+    }
     console.log(random);
 });
 eraser.addEventListener('click',erase);
@@ -29,15 +33,18 @@ makeCanvas(50);
 
 function mainPen(){
     this.style.background = colorChoice;
-    if(random === "random"){
+    
+    if(random === 'random'){
         let color = randomColor();
         this.style.background = color;
+    }else if(random === ' '){
+        this.style.background = colorChoice;
     }
     
 };
 function erase (){
     colorChoice = "white";
-    random = " ";
+    random = ' ';
 };
 // Slider input 
 function gridInput(input){
@@ -49,7 +56,7 @@ function resetCanvas(){
     return makeCanvas(slider.value);
 };
 function penColor(){
-    random = " ";
+    random = ' ';
     colorChoice = color.value;
     console.log(colorChoice);
 };
