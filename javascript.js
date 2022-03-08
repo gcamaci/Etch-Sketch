@@ -1,23 +1,28 @@
+let click = false;
+let colorChoice;
+let mode = "normal";
 let color= document.getElementById('favcolor');
-let colorChoice = color.value;
-let random = " ";
 let slider = document.getElementById('sliderAmount');
 let canvas = document.querySelector('#main-container');
-let eraser = document.querySelector('#eraser');
-let reset = document.querySelector('#reset');
-const rainbowcolors = document.querySelector('#rainbow');
-rainbowcolors.addEventListener('click', () =>{
-    if(random === 'random'){
-        random = ' ';
-    }else if(random===' '){
-        random = 'random'
-    }
-    console.log(random);
-});
-eraser.addEventListener('click',erase);
-reset.addEventListener('click', resetCanvas);
 
+let reset = document.querySelector('#reset');
+reset.addEventListener('click', resetCanvas);
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        if(button.id === mode){
+            mode = "normal";
+        }
+        else{
+            mode = button.id;
+        }
+        console.log(mode);
+        console.log(e);
+        
+    });
+});
 function makeCanvas(size){
+   
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     let gridSize = size * size;
@@ -25,41 +30,41 @@ function makeCanvas(size){
         let pixel = document.createElement('div');
         pixel.classList.add('pixels')
         pixel.addEventListener('mouseover', mainPen);
-        //pixel.addEventListener('mousedown', mainPen);
         canvas.insertAdjacentElement('beforeend', pixel);
     }
 };
 makeCanvas(50);
 
 function mainPen(){
-    this.style.background = colorChoice;
-    
-    if(random === 'random'){
-        let color = randomColor();
-        this.style.background = color;
-    }else if(random === ' '){
+    canvas.classList.remove('shakeMe');
+    if(click){
         this.style.background = colorChoice;
+        if(mode === "rainbow"){
+            this.style.background = randomColor();
+        }else if(mode === "eraser"){
+            this.style.background = "white";
+        }else{
+            colorChoice = color.value;
+        }
     }
-    
-};
-function erase (){
-    colorChoice = "white";
-    random = ' ';
 };
 // Slider input 
 function gridInput(input){
     canvas.innerHTML = '';
+    console.log(`${input} X ${input}`);
     return makeCanvas(input)
 };
 function resetCanvas(){
     canvas.innerHTML = '';
+    canvas.classList.add('shakeMe');
     return makeCanvas(slider.value);
 };
 function penColor(){
-    random = ' ';
+    mode = "normal";
     colorChoice = color.value;
-    console.log(colorChoice);
+    console.log(mode);
 };
+
 
 function randomColor(){
     switch(Math.floor(Math.random() * 5)){
@@ -86,6 +91,9 @@ function randomColor(){
    
 };
 
+canvas.addEventListener('click',() => {
+    click =!click;
+});
 
 
 
