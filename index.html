@@ -9,17 +9,26 @@
 </head>
 <body>
     <div class="flex-container">
-        <div id="main-container">
+        <div class="button-container">
+            <div class="controller">
+                <button id = "eraser" class="btn buttons">Eraser</button>
+                <button id = "reset">Reset</button>
+                <button id = "rainbow" class="btn">Rainbow</button>
+                <div class="slider-container">
+                    <label for = "slider">Select a Pen Color!</label>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="sliderAmount" onchange="gridInput(this.value)">
+                </div>    
+                <div class="color-container">
+                    <label for = "pen-color">Select a Pen Color!</label>
+                    <input type="color" id="favcolor" name="favcolor" value="#ff0000" onchange="penColor()">
+                </div>
+            </div>
         </div>
-    </div>  
-    <div class="button-container">
-        <button id = "eraser" class="btn">Eraser</button>
-        <button id = "reset">Reset</button>
-        <button id = "rainbow" class="btn">Rainbow</button>
-    </div>
-    <input type="range" min="1" max="100" value="50" class="slider" id="sliderAmount" onchange="gridInput(this.value)">
-    <label for = "pen-color">Select a Pen Color!</label>
-    <input type="color" id="favcolor" name="favcolor" value="#ff0000" onchange="penColor()">
+        <div class="main-flex">
+            <div id="main-container">
+            </div>
+        </div>
+    </div> 
     <script src="javascript.js"></script>
 </body>
 </html>

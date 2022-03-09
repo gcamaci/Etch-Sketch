@@ -28,7 +28,7 @@ function makeCanvas(size){
     let gridSize = size * size;
     for(let i = 0; i < gridSize; i++){
         let pixel = document.createElement('div');
-        pixel.classList.add('pixels')
+        pixel.classList.add('fade')
         pixel.addEventListener('mouseover', mainPen);
         canvas.insertAdjacentElement('beforeend', pixel);
     }
@@ -42,7 +42,7 @@ function mainPen(){
         if(mode === "rainbow"){
             this.style.background = randomColor();
         }else if(mode === "eraser"){
-            this.style.background = "white";
+            this.style.background = "whitesmoke";
         }else{
             colorChoice = color.value;
         }
