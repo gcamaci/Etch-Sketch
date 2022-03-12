@@ -1,9 +1,11 @@
 let click = false;
 let colorChoice;
 let mode = "normal";
+let gridlines = true;
 let color= document.getElementById('favcolor');
 let slider = document.getElementById('sliderAmount');
 let canvas = document.querySelector('#main-container');
+let lines = document.querySelector('.lines')
 
 let reset = document.querySelector('#reset');
 reset.addEventListener('click', resetCanvas);
@@ -22,15 +24,18 @@ buttons.forEach((button) => {
     });
 });
 function makeCanvas(size){
-   
+    color.style.background = color.value;
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     canvas.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     let gridSize = size * size;
     for(let i = 0; i < gridSize; i++){
         let pixel = document.createElement('div');
-        pixel.classList.add('fade')
+        pixel.classList.add('fade');
         pixel.addEventListener('mouseover', mainPen);
         canvas.insertAdjacentElement('beforeend', pixel);
+        if(gridlines === true){
+            pixel.classList.add('lines')
+        }
     }
 };
 makeCanvas(50);
@@ -56,12 +61,14 @@ function gridInput(input){
 };
 function resetCanvas(){
     canvas.innerHTML = '';
+    mode = "normal"
     canvas.classList.add('shakeMe');
     return makeCanvas(slider.value);
 };
 function penColor(){
     mode = "normal";
     colorChoice = color.value;
+    color.style.background = color.value;
     console.log(mode);
 };
 
