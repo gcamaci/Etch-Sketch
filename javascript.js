@@ -1,13 +1,12 @@
 let click = false;
 let colorChoice;
 let mode = "normal";
-let gridlines = true;
 let color= document.getElementById('favcolor');
 let slider = document.getElementById('sliderAmount');
 let canvas = document.querySelector('#main-container');
-let lines = document.querySelector('.lines')
-
 let reset = document.querySelector('#reset');
+let gridOutput = document.querySelector("#grid-output")
+
 reset.addEventListener('click', resetCanvas);
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
@@ -19,8 +18,7 @@ buttons.forEach((button) => {
             mode = button.id;
         }
         console.log(mode);
-        console.log(e);
-        
+        console.log(e); 
     });
 });
 function makeCanvas(size){
@@ -33,9 +31,6 @@ function makeCanvas(size){
         pixel.classList.add('fade');
         pixel.addEventListener('mouseover', mainPen);
         canvas.insertAdjacentElement('beforeend', pixel);
-        if(gridlines === true){
-            pixel.classList.add('lines')
-        }
     }
 };
 makeCanvas(50);
@@ -57,11 +52,12 @@ function mainPen(){
 function gridInput(input){
     canvas.innerHTML = '';
     console.log(`${input} X ${input}`);
+    gridOutput.textContent = `${input} X ${input}`;
     return makeCanvas(input)
 };
 function resetCanvas(){
     canvas.innerHTML = '';
-    mode = "normal"
+    mode = "normal";
     canvas.classList.add('shakeMe');
     return makeCanvas(slider.value);
 };
@@ -71,8 +67,6 @@ function penColor(){
     color.style.background = color.value;
     console.log(mode);
 };
-
-
 function randomColor(){
     switch(Math.floor(Math.random() * 5)){
         case 0:
@@ -101,7 +95,6 @@ function randomColor(){
 canvas.addEventListener('click',() => {
     click =!click;
 });
-
 
 
 

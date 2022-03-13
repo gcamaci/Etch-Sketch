@@ -15,17 +15,17 @@
             <div class="button-container">
                 <div class="controller">
                     <div class="color-container">
-                        <label for = "pen-color">Select a Pen Color!</label>
+                        <label id="color-picker"for = "pen-color">Select a Pen Color!</label>
                         <input type="color" id="favcolor" name="favcolor" value="#f625da" onchange="penColor()">
                     </div>
                     <div class="slider-container">
-                        <label class= "grid-output "for = "slider">Select Grid Size</label>
+                        <label id= "grid-output"for = "slider">Select Grid Size</label>
                         <input type="range" min="1" max="100" value="50" class="slider" id="sliderAmount" onchange="gridInput(this.value)">
                     </div>   
                     <button id = "eraser" class="btn buttons">Eraser</button>
                     <button id = "reset" class="buttons">Reset</button>
                     <button id = "rainbow" class="btn buttons">Rainbow</button>
-                    <button id = "lines buttons">Lines</button>
+                    
                 </div>
             </div>
             <div class="main-flex">
