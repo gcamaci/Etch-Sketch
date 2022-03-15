@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="flex-container">
-        <div class="header"><h1>Etch-a-Sketch</h1></div>
+        <div class="header"><h1 id="head">Etch-a-Sketch</h1></div>
         <div class="flex-row">
-            <div class="button-container">
+            <div id ="controls"class="button-container">
                 <div class="controller">
                     <div class="color-container">
                         <label id="color-picker"for = "pen-color">Select a Pen Color!</label>
@@ -22,9 +22,9 @@
                         <label id= "grid-output"for = "slider">Select Grid Size</label>
                         <input type="range" min="1" max="100" value="50" class="slider" id="sliderAmount" onchange="gridInput(this.value)">
                     </div>   
-                    <button id = "eraser" class="btn buttons">Eraser</button>
-                    <button id = "reset" class="buttons">Reset</button>
-                    <button id = "rainbow" class="btn buttons">Rainbow</button>
+                    <button id = "eraser" class="btn color-one buttons">Eraser</button>
+                    <button id = "reset" class="color-two buttons">Reset</button>
+                    <button id = "rainbow" class="btn color-three buttons">Rainbow</button>
                     
                 </div>
             </div>

@@ -4,17 +4,17 @@
 }
 body{
     margin:0px;
-    background-color: #3c464d;
+    background-color: #1b1b24;
 }
 h1{
     font-family: 'Letter Sketch', sans-serif;
     color:#f625da;
-    font-size:7em;
+    font-size: 6.5em;
     margin: 0px;
 }
 .header{
     text-align: center;
-    width: 100%;
+    width: 65vw;
 }
 .flex-container{
     display: flex;
@@ -31,39 +31,62 @@ h1{
 }
 .button-container{
     display: flex;
-    margin-right: 50px;
-    background-color: rgba(246, 37, 218, 0.5);
+    margin-right: 50px; 
+    background-color: rgba(86, 86, 90, 0.411);
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px violet;
+    
 }
 .controller{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     padding:10px;
-    gap:20px;
-    border: solid black;
-    width: 30vw;
+    gap:40px;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 300px;
     
 }
 .buttons{
     width:50%;
-    font-size:100%;
-}
-#color-picker{
-    font-size: 2em;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color:#f625da;
+    border: solid #f625da;
+    padding: 5px;   
     font-family: 'Letter Sketch', sans-serif;
-    color: white;
+}
+.buttons:hover{
+    background-color: whitesmoke;
+}
+
+#color-picker{
+    font-size: 1.5em;
+    font-family: 'Letter Sketch', sans-serif;
+    color: #f625da;
+    text-align: center;
+    font-weight: bold; 
 }
 #favcolor{
-    border-radius: 100px;
-    width: 30px;
-    height: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border: none;
+    width: 120px;
+    height: 120px;
+    cursor:pointer;
+    background-color: transparent;
+    border-radius: 200px;
+    margin-top: 20px;
+}
+#favcolor::-webkit-color-swatch{
+    border-radius: 15px;
 }
 #main-container{
     display: grid;
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     min-width:300px;
     min-height:300px;
     max-width: 600px;
@@ -71,6 +94,7 @@ h1{
     box-shadow:10px 11px 12px #f625da;
     /*box-shadow: 0 10px 9px rgba(207, 56, 169, 0.75);*/
     background-color: whitesmoke;
+    z-index: 1;
    
 }
 .main-flex{
@@ -90,6 +114,7 @@ h1{
     display:flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .color-container{
     display:flex;
@@ -97,9 +122,23 @@ h1{
     align-items: center;
 }
 #grid-output{
-    font-family:sans-serif;
+    font-family: 'Letter Sketch', sans-serif;
     color:violet;
-    font-size: 1em;
+    font-size: 1.5em;
+}
+#sliderAmount{
+    width:80%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #f625da;
+    border-radius: 5px;
+
+    
+}
+#sliderAmount::-webkit-slider-thumb{
+   
+    
+
 }
 
 .shakeMe{
