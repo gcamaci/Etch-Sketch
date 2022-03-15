@@ -9,9 +9,6 @@ let reset = document.querySelector('#reset');
 let gridOutput = document.querySelector("#grid-output");
 let header = document.querySelector('#head');
 const colorPicker = document.querySelector('#color-picker');
-const colorOne = document.querySelector('.color-one');
-const colorTwo = document.querySelector('.color-two');
-const colorThree = document.querySelector('.color-three');
 
 reset.addEventListener('click', resetCanvas);
 const buttons = document.querySelectorAll('.btn');
@@ -70,19 +67,10 @@ function resetCanvas(){
 function penColor(){
     mode = "normal";
     colorChoice = color.value;
-    colorPicker.style.color = color.value;
     canvas.style.boxShadow = "10px 11px 12px" + color.value;
-    gridOutput.style.color = color.value;
-    header.style.color = color.value;
     colorPicker.textContent = color.value;
     slider.style.backgroundColor = color.value
     controller.style.boxShadow = '0 0 0 4px' + color.value;
-    colorOne.style.border = "solid" + color.value;
-    colorOne.style.color = color.value;
-    colorTwo.style.border = "solid" + color.value;
-    colorTwo.style.color = color.value;
-    colorThree.style.border = "solid" + color.value;
-    colorThree.style.color = color.value;
 
 
     console.log(mode);

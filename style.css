@@ -4,11 +4,11 @@
 }
 body{
     margin:0px;
-    background-color: #1b1b24;
+    background-color: #303031;
 }
 h1{
     font-family: 'Letter Sketch', sans-serif;
-    color:#f625da;
+    color:whitesmoke;
     font-size: 6.5em;
     margin: 0px;
 }
@@ -33,7 +33,7 @@ h1{
 .button-container{
     display: flex;
     margin-right: 50px; 
-    background-color: rgba(86, 86, 90, 0.411);
+    background-color: rgba(93, 93, 97, 0.824);
     border-radius: 10px;
     box-shadow: 0 0 0 4px #f625da;
     
@@ -53,21 +53,21 @@ h1{
     width:50%;
     font-size: 20px;
     background-color: transparent;
-    color:#f625da;
-    border: solid #f625da;
+    color:whitesmoke;
+    border: solid whitesmoke;
     padding: 5px;   
     font-family: 'Letter Sketch', sans-serif;
     box-sizing: border-box;
     min-width: 110px;
 }
 .buttons:hover{
-    background-color: whitesmoke;
+    background-color: grey;
 }
 
 #color-picker{
     font-size: 1.5em;
     font-family: 'Letter Sketch', sans-serif;
-    color: #f625da;
+    color: whitesmoke;
     text-align: center;
     font-weight: bold; 
 }
@@ -126,14 +126,14 @@ h1{
 }
 #grid-output{
     font-family: 'Letter Sketch', sans-serif;
-    color:violet;
+    color:whitesmoke;
     font-size: 1.5em;
 }
 #sliderAmount{
     width:80%;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #f625da;
+    background-color: whitesmoke;
     border-radius: 5px;
 
     
