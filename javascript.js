@@ -1,15 +1,20 @@
 let click = false;
 let colorChoice;
 let mode = "normal";
-const controller = document.getElementById('controls');
-let color= document.getElementById('favcolor');
-let slider = document.getElementById('sliderAmount');
-let canvas = document.querySelector('#main-container');
-let reset = document.querySelector('#reset');
-let gridOutput = document.querySelector("#grid-output");
-let header = document.querySelector('#head');
-const colorPicker = document.querySelector('#color-picker');
 
+//query Selectors
+const controller = document.getElementById('controls');
+const color= document.getElementById('favcolor');
+const slider = document.getElementById('sliderAmount');
+const canvas = document.querySelector('#main-container');
+const reset = document.querySelector('#reset');
+const gridOutput = document.querySelector("#grid-output");
+const colorPicker = document.querySelector('#color-picker');
+const buttonOne = document.querySelector('.color-one');
+const buttonTwo = document.querySelector('.color-two');
+const buttonThree = document.querySelector('.color-three');
+
+//Buttons mode choice
 reset.addEventListener('click', resetCanvas);
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
@@ -24,6 +29,7 @@ buttons.forEach((button) => {
         console.log(e); 
     });
 });
+//make drawing board
 function makeCanvas(size){
     //color.style.background = color.value;
     canvas.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -37,7 +43,7 @@ function makeCanvas(size){
     }
 };
 makeCanvas(50);
-
+//pen based off mode
 function mainPen(){
     canvas.classList.remove('shakeMe');
     if(click){
@@ -71,6 +77,9 @@ function penColor(){
     colorPicker.textContent = color.value;
     slider.style.backgroundColor = color.value
     controller.style.boxShadow = '0 0 0 4px' + color.value;
+    buttonOne.style.boxShadow = '5px 5px 7px' + color.value;
+    buttonTwo.style.boxShadow = '5px 5px 7px' + color.value;
+    buttonThree.style.boxShadow = '5px 5px 7px' + color.value;
 
 
     console.log(mode);
