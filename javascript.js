@@ -81,7 +81,6 @@ function penColor(){
     buttonTwo.style.boxShadow = '5px 5px 7px' + color.value;
     buttonThree.style.boxShadow = '5px 5px 7px' + color.value;
 
-
     console.log(mode);
 };
 function randomColor(){
