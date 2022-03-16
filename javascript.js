@@ -80,8 +80,6 @@ function penColor(){
     buttonOne.style.boxShadow = '5px 5px 7px' + color.value;
     buttonTwo.style.boxShadow = '5px 5px 7px' + color.value;
     buttonThree.style.boxShadow = '5px 5px 7px' + color.value;
-
-    console.log(mode);
 };
 function randomColor(){
     switch(Math.floor(Math.random() * 5)){
@@ -105,42 +103,7 @@ function randomColor(){
         colorChoice = "violet";
         break;
     }
-   
 };
-
 canvas.addEventListener('click',() => {
     click =!click;
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
