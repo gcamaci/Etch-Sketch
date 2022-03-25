@@ -76,7 +76,7 @@ function penColor(){
     canvas.style.boxShadow = "10px 11px 12px" + color.value;
     colorPicker.textContent = color.value;
     slider.style.backgroundColor = color.value
-    controller.style.boxShadow = '0 0 0 4px' + color.value;
+    controller.style.boxShadow = '11px 11px 11px' + color.value;
     buttonOne.style.boxShadow = '5px 5px 7px' + color.value;
     buttonTwo.style.boxShadow = '5px 5px 7px' + color.value;
     buttonThree.style.boxShadow = '5px 5px 7px' + color.value;
